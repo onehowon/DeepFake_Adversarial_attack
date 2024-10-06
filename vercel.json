@@ -1,7 +1,6 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "pages/**/*.js", "use": "@vercel/node" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ]
+}
