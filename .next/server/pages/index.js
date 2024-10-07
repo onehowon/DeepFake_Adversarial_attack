@@ -23,10 +23,74 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./components/ImageUpload.js":
-/*!***********************************!*\
-  !*** ./components/ImageUpload.js ***!
-  \***********************************/
+/***/ "./pages/index.js":
+/*!************************!*\
+  !*** ./pages/index.js ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction ImageUpload() {\n    const [image, setImage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    const [epsValue, setEpsValue] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0.3);\n    const [resultImage, setResultImage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);\n    const handleImageUpload = (e)=>{\n        setImage(e.target.files[0]);\n    };\n    const handleSubmit = async ()=>{\n        const formData = new FormData();\n        formData.append(\"image\", image);\n        formData.append(\"eps_value\", epsValue);\n        try {\n            const response = await fetch(\"/api/predict\", {\n                method: \"POST\",\n                body: formData\n            });\n            if (!response.ok) {\n                throw new Error(\"Failed to upload image\");\n            }\n            const data = await response.json();\n            // 처리된 이미지를 Base64 문자열로 처리\n            if (data.image) {\n                setResultImage(`data:image/png;base64,${data.image}`);\n            } else {\n                console.error(\"No image data received\");\n            }\n        } catch (error) {\n            console.error(\"API 호출 오류:\", error);\n        }\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                type: \"file\",\n                onChange: handleImageUpload\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\components\\\\ImageUpload.js\",\n                lineNumber: 42,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                type: \"range\",\n                min: \"0.1\",\n                max: \"1.0\",\n                step: \"0.1\",\n                value: epsValue,\n                onChange: (e)=>setEpsValue(e.target.value)\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\components\\\\ImageUpload.js\",\n                lineNumber: 43,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                onClick: handleSubmit,\n                children: \"이미지 처리\"\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\components\\\\ImageUpload.js\",\n                lineNumber: 51,\n                columnNumber: 7\n            }, this),\n            resultImage && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"img\", {\n                src: resultImage,\n                alt: \"처리된 이미지\"\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\components\\\\ImageUpload.js\",\n                lineNumber: 52,\n                columnNumber: 23\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\components\\\\ImageUpload.js\",\n        lineNumber: 41,\n        columnNumber: 5\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageUpload);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL0ltYWdlVXBsb2FkLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFpQztBQUVqQyxTQUFTQztJQUNQLE1BQU0sQ0FBQ0MsT0FBT0MsU0FBUyxHQUFHSCwrQ0FBUUEsQ0FBQztJQUNuQyxNQUFNLENBQUNJLFVBQVVDLFlBQVksR0FBR0wsK0NBQVFBLENBQUM7SUFDekMsTUFBTSxDQUFDTSxhQUFhQyxlQUFlLEdBQUdQLCtDQUFRQSxDQUFDO0lBRS9DLE1BQU1RLG9CQUFvQixDQUFDQztRQUN6Qk4sU0FBU00sRUFBRUMsTUFBTSxDQUFDQyxLQUFLLENBQUMsRUFBRTtJQUM1QjtJQUVBLE1BQU1DLGVBQWU7UUFDbkIsTUFBTUMsV0FBVyxJQUFJQztRQUNyQkQsU0FBU0UsTUFBTSxDQUFDLFNBQVNiO1FBQ3pCVyxTQUFTRSxNQUFNLENBQUMsYUFBYVg7UUFFN0IsSUFBSTtZQUNGLE1BQU1ZLFdBQVcsTUFBTUMsTUFBTSxnQkFBZ0I7Z0JBQzNDQyxRQUFRO2dCQUNSQyxNQUFNTjtZQUNSO1lBRUEsSUFBSSxDQUFDRyxTQUFTSSxFQUFFLEVBQUU7Z0JBQ2
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction Home() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                children: \"Adversarial Image Attack\"\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\pages\\\\index.js\",\n                lineNumber: 4,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"script\", {\n                type: \"module\",\n                src: \"https://gradio.s3-us-west-2.amazonaws.com/4.44.1/gradio.js\"\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\pages\\\\index.js\",\n                lineNumber: 5,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"gradio-app\", {\n                src: \"https://onehowon-adversarial-attack-pgd.hf.space\"\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\pages\\\\index.js\",\n                lineNumber: 9,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"C:\\\\Users\\\\sande\\\\Desktop\\\\school\\\\DeepFake_Adversarial_attack\\\\pages\\\\index.js\",\n        lineNumber: 3,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQWUsU0FBU0E7SUFDdEIscUJBQ0UsOERBQUNDOzswQkFDQyw4REFBQ0M7MEJBQUc7Ozs7OzswQkFDSiw4REFBQ0M7Z0JBQ0NDLE1BQUs7Z0JBQ0xDLEtBQUk7Ozs7OzswQkFFTiw4REFBQ0M7Z0JBQVdELEtBQUk7Ozs7Ozs7Ozs7OztBQUd0QiIsInNvdXJjZXMiOlsid2VicGFjazovL2RlZXBmYWtlX2FkdmVyc2FyaWFsX2F0dGFjay8uL3BhZ2VzL2luZGV4LmpzP2JlZTciXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gSG9tZSgpIHtcclxuICByZXR1cm4gKFxyXG4gICAgPGRpdj5cclxuICAgICAgPGgxPkFkdmVyc2FyaWFsIEltYWdlIEF0dGFjazwvaDE+XHJcbiAgICAgIDxzY3JpcHRcclxuICAgICAgICB0eXBlPVwibW9kdWxlXCJcclxuICAgICAgICBzcmM9XCJodHRwczovL2dyYWRpby5zMy11cy13ZXN0LTIuYW1hem9uYXdzLmNvbS80LjQ0LjEvZ3JhZGlvLmpzXCJcclxuICAgICAgPjwvc2NyaXB0PlxyXG4gICAgICA8Z3JhZGlvLWFwcCBzcmM9XCJodHRwczovL29uZWhvd29uLWFkdmVyc2FyaWFsLWF0dGFjay1wZ2QuaGYuc3BhY2VcIj48L2dyYWRpby1hcHA+XHJcbiAgICA8L2Rpdj5cclxuICApO1xyXG59XHJcbiJdLCJuYW1lcyI6WyJIb21lIiwiZGl2IiwiaDEiLCJzY3JpcHQiLCJ0eXBlIiwic3JjIiwiZ3JhZGlvLWFwcCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/index.js\n");
+
+/***/ }),
+
+/***/ "next/dist/compiled/next-server/pages.runtime.dev.js":
+/*!**********************************************************************!*\
+  !*** external "next/dist/compiled/next-server/pages.runtime.dev.js" ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+module.exports = require("next/dist/compiled/next-server/pages.runtime.dev.js");
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
+/***/ ((module) => {
+
+module.exports = require("react/jsx-dev-runtime");
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!************************************!*\
+  !*** external "react/jsx-runtime" ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = require("react/jsx-runtime");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = require("path");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc"], () => (__webpack_exec__("./node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js?kind=PAGES&page=%2F&preferredRegion=&absolutePagePath=.%2Fpages%5Cindex.js&absoluteAppPath=private-next-pages%2F_app&absoluteDocumentPath=private-next-pages%2F_document&middlewareConfigBase64=e30%3D!")));
+module.exports = __webpack_exports__;
+
+})();
