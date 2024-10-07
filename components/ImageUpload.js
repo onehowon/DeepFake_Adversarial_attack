@@ -15,35 +15,43 @@ function ImageUpload() {
     formData.append('eps_value', epsValue);
 
     try {
-        const response = await fetch(process.env.NEXT_PUBLIC_HF_API_URL, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${process.env.HF_API_KEY}`,  // 환경 변수로 토큰 추가
-          },
-          body: formData,
-        });
-        const data = await response.json();
-        setResultImage(data.image);
-      } catch (error) {
-        console.error("API 호출 오류:", error);
-      }
-    };
+      const response = await fetch('/api/predict', {
+        method: 'POST',
+        body: formData,
+      });
 
-    return (
-        <div>
-          <input type="file" onChange={handleImageUpload} />
-          <input
-            type="range"
-            min="0.1"
-            max="1.0"
-            step="0.1"
-            value={epsValue}
-            onChange={(e) => setEpsValue(e.target.value)}
-          />
-          <button onClick={handleSubmit}>이미지 처리</button>
-          {resultImage && <img src={`data:image/png;base64,${resultImage}`} alt="처리된 이미지" />}
-        </div>
-      );
+      if (!response.ok) {
+        throw new Error('Failed to upload image');
+      }
+
+      const data = await response.json();
+
+      // 처리된 이미지를 Base64 문자열로 처리
+      if (data.image) {
+        setResultImage(`data:image/png;base64,${data.image}`);
+      } else {
+        console.error('No image data received');
+      }
+    } catch (error) {
+      console.error("API 호출 오류:", error);
     }
-    
+  };
+
+  return (
+    <div>
+      <input type="file" onChange={handleImageUpload} />
+      <input
+        type="range"
+        min="0.1"
+        max="1.0"
+        step="0.1"
+        value={epsValue}
+        onChange={(e) => setEpsValue(e.target.value)}
+      />
+      <button onClick={handleSubmit}>이미지 처리</button>
+      {resultImage && <img src={resultImage} alt="처리된 이미지" />}
+    </div>
+  );
+}
+
 export default ImageUpload;
